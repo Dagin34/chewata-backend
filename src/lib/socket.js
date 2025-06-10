@@ -7,7 +7,10 @@ const server = http.createServer(app)
 
 const io = new Server(server, {
   cors: {
-    origin: ['https://chewata-chatting.vercel.app'],
+    origin: [
+      "http://localhost:5173",             // Development
+      "https://chewata-chatting.vercel.app" // Production
+    ],
   },
 });
 
