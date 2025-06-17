@@ -15,12 +15,12 @@ This is the backend server for Chewata Chat, a real-time chatting application bu
 
 ## Environment Variables
 Create a `.env` file at the project root with:
-JWT_SECRET=<your_jwt_secret> 
-MONGODB_URI=<your_mongodb_connection_uri> 
-CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name> 
-CLOUDINARY_API_KEY=<your_cloudinary_api_key> 
-CLOUDINARY_API_SECRET=<your_cloudinary_api_secret> 
-PORT=5200 NODE_ENV=production
+- JWT_SECRET=<your_jwt_secret> 
+- MONGODB_URI=<your_mongodb_connection_uri> 
+- CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name> 
+- CLOUDINARY_API_KEY=<your_cloudinary_api_key> 
+- CLOUDINARY_API_SECRET=<your_cloudinary_api_secret> 
+- PORT=5200 NODE_ENV=production
 
 
 ## Installation
