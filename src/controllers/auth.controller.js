@@ -50,7 +50,7 @@ export const signup = async (req, res) => {
     }
     return res.status(400).json({ message: 'User creation failed' })
   } catch (error) {
-    console.error('Error during signup controller:', error)
+    console.error('[SERVER] Error during signup controller:', error)
     res.status(500).json({ message: 'Internal server error' })
   }
 }
@@ -86,7 +86,7 @@ export const login = async (req, res) => {
       bio: user.bio,
     })
   } catch (error) {
-    console.error('Error during login controller:', error)
+    console.error('[SERVER] Error during login controller:', error)
     res.status(500).json({ message: 'Internal server error' })
   }
 }
@@ -98,7 +98,7 @@ export const logout = async (req, res) => {
     // res.clearCookie('jwt')
     return res.status(200).json({ message: 'Logged out successfully' })
   } catch (error) {
-    console.error('Error during logout controller:', error)
+    console.error('[SERVER] Error during logout controller:', error)
     res.status(500).json({ message: 'Internal server error' })
   }
 }
@@ -126,7 +126,7 @@ export const updateProfile = async (req, res) => {
 
     res.status(200).json(updatedUser)
   } catch (error) {
-    console.error('Error during updateProfile controller:', error)
+    console.error('[SERVER] Error during updateProfile controller:', error)
     res.status(500).json({ message: 'Internal server error' })
   }
 }
@@ -135,7 +135,7 @@ export const checkAuth = async (req, res) => {
   try {
     res.status(200).json(req.user)
   } catch (error) {
-    console.error('Error during checkAuth controller:', error)
+    console.error('[SERVER] Error during checkAuth controller:', error)
     res.status(500).json({ message: 'Internal server error' })
   }
 }

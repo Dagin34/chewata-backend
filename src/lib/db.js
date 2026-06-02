@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 export const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log("MongoDB connected successfully: ", conn.connection.host);
+    const rawHost = conn.connection.host;
+    const shortHost = rawHost.length > 6 ? `${rawHost.slice(0, 6)}...` : rawHost;
+
+    console.log("[MONGODB] Connected successfully:", shortHost);
   } catch (error) {
-    console.error("MongoDB connection error:", error);
+    console.error("[MONGODB] Connection error:", error);
   }
 }

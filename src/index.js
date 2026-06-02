@@ -41,6 +41,6 @@ app.use("/api/messages", messageRoutes);
 
 //.. Listen here
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`[SERVER] Running on http://localhost:${PORT}`);
   connectDB();
 });

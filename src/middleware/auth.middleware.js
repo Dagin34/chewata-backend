@@ -16,7 +16,7 @@ export const protectRoute = async (req, res, next) => {
     req.user = user // Attach the user to the request object for further use
     next()
   } catch (error) {
-    console.error('Error during authentication middleware:', error)
+    console.error('[AUTH] Error during authentication middleware:', error)
     res.status(500).json({ message: 'Internal Server Error.' })
   }
 }
