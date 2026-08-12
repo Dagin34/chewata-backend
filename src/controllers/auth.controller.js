@@ -1,4 +1,4 @@
-import { generateToken } from "../lib/utils.js"
+import { generateToken, COOKIE_OPTIONS } from "../lib/utils.js"
 import User from "../models/user.model.js"
 import bcrypt from "bcryptjs"
 import cloudinary from "../lib/cloudinary.js"
@@ -93,9 +93,9 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    //.. Clear the JWT token from the cookie
-    res.cookie('jwt', '', { maxage: 0 })
-    // res.clearCookie('jwt')
+    //.. Must clear with the same attributes (sameSite/secure/path) the cookie was set
+    //.. with, or the browser treats it as a different cookie and won't remove it.
+    res.clearCookie('jwt', COOKIE_OPTIONS)
     return res.status(200).json({ message: 'Logged out successfully' })
   } catch (error) {
     console.error('[SERVER] Error during logout controller:', error)

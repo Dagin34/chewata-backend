@@ -11,17 +11,21 @@ import { app, server } from './lib/socket.js';
 dotenv.config();
 const PORT = process.env.PORT || 5200;
 
+if (!process.env.NODE_ENV) {
+  console.warn(
+    '[SERVER] NODE_ENV is not set. In production this must be exactly "production" — ' +
+    'otherwise the auth cookie is issued as SameSite=Strict and will be silently dropped ' +
+    'by browsers on cross-site requests between the frontend and this API, breaking login.'
+  );
+}
+
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://chewata-chatting.vercel.app', 
+  'https://chewata-chatting.vercel.app',
 ];
 
 app.use(express.json({ limit: '5mb' }));
 app.use(cookieParser());
-// app.use(cors({
-//   origin: "https://chewata-chatting.vercel.app",
-//   credentials: true,
-// }));
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
